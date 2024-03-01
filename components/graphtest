@@ -1,0 +1,24 @@
+<View style={{width: '100%', height: 300, flexDirection: 'row'}}>
+        <YAxis
+          data={latestYValues}
+          contentInset={{top: 20, bottom: 20}}
+          svg={{fill: 'white', fontSize: 10, fontWeight: 'bold'}} // Apply white color and bold font
+          numberOfTicks={10}
+          formatLabel={value => `${value}`} // Format y-axis labels
+        />
+        <View style={{flex: 1, marginLeft: 10}}>
+          <LineChart
+            style={[styles.chart, {width: chartWidth}]}
+            data={latestYValues}
+            svg={{stroke: 'rgb(134, 65, 244)'}}
+            contentInset={{top: 20, bottom: 20}}
+          />
+          <XAxis
+            style={{marginHorizontal: -10, height: 30}}
+            data={latestXValues}
+            formatLabel={formatHourMinute} // Use custom function to format labels
+            contentInset={{left: 20, right: 20}}
+            svg={{fontSize: 10, fill: 'white', fontWeight: 'bold'}} // Apply white color and bold font
+          />
+        </View>
+      </View>
